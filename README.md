@@ -26,9 +26,30 @@ curl -i -X GET http://localhost:8090/foo
 ## Centralized Properties by Pull mode, plus Discovery Service
 * Spring Cloud Config Repo in GitHub: config-repo
 * Spring Cloud Config Server: config-server
-* Spring Cloud Discovery Server: eureka-server
+* Spring Cloud Discovery Server: discovery-server
 * Spring Cloud Config Client App: foo-service
-* Spring Cloud Config Client App: bar-service
+
+```commandline
+# Step 1 Build docker image for all 4 components
+cd {bar-service|spring-cloud-config|spring-cloud-discovery}
+mvn docker:build
+
+# Step 2 Run docker compose command
+docker-compose up
+
+# Step 3 Check if bar-service and config-server up, and what property value getting? 
+curl -i -X GET http://localhost:8091/bar
+curl -i -X GET http://localhost:8888/bar-service/default
+
+# Step 4 Check if services registered in discovery server
+open browser http://localhost:8761/
+
+# Step 5 Refresh bar-service to fetch possible update:
+curl -i -X POST http://localhost:8091/refresh
+
+# Step 6 Check again what property value bar-service is using?
+curl -i -X GET http://localhost:8091/bar
+```
 
 ## Centralized Properties by Post mode
  
