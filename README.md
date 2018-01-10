@@ -8,7 +8,7 @@ demo of spring cloud project in docker compose
 
 ```commandline
 # Step 1 Check current property value
-curl -i -X GET http://localhost:8090/message
+curl -i -X GET http://localhost:8090/foo
 
 # Step 2 Update property: foo.service.message by increasing Version No.
 https://github.com/csihome/csihome-springcloud-config-repo/blob/master/foo-service.properties
@@ -20,8 +20,15 @@ curl -i -X GET http://localhost:8888/foo-service/default
 curl -i -X POST http://localhost:8090/refresh
 
 # Step 5 Check what value in App Service now:
-curl -i -X GET http://localhost:8090/message
+curl -i -X GET http://localhost:8090/foo
 ```
+
+## Centralized Properties by Pull mode, plus Discovery Service
+* Spring Cloud Config Repo in GitHub: config-repo
+* Spring Cloud Config Server: config-server
+* Spring Cloud Discovery Server: eureka-server
+* Spring Cloud Config Client App: foo-service
+* Spring Cloud Config Client App: bar-service
 
 ## Centralized Properties by Post mode
  

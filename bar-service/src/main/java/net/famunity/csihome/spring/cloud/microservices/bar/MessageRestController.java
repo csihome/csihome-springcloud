@@ -1,4 +1,4 @@
-package net.famunity.csihome.spring.cloud.microservices.foo;
+package net.famunity.csihome.spring.cloud.microservices.bar;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 class MessageRestController {
 
-	@Value("${foo.service.message:Hello default - foo}")
+	@Value("${bar.service.message:Hello default bar}")
 	private String message;
 
-	@RequestMapping("/foo")
+	@RequestMapping("/bar")
 	String getMessage() {
 		return this.message;
 	}

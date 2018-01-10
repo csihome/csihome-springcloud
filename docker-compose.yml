@@ -1,3 +1,23 @@
+discovery-server:
+  image: famunity/discovery-server
+  ports:
+   - "8761:8761"
+
+config-server:
+  image: famunity/config-server
+  ports:
+   - "8888:8888"
+  links:
+   - discovery-server
+
+bar-service:
+  image: famunity/bar-service
+  ports:
+   - "8091:8091"
+  links:
+   - discovery-server
+   - config-server
+
 rabbitmq:
   image: rabbitmq:management
   ports:
