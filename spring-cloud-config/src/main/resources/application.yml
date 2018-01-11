@@ -1,0 +1,41 @@
+server:
+  port: 8888
+
+eureka:
+  instance:
+    hostname: config-server
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://discovery-server:8761/eureka/
+
+spring.profiles.active: push-mode
+
+---
+spring.profiles: push-mode
+
+spring:
+  profiles:
+    include: native
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:/Users/zhanming.cui/Synchronoss/GitHubCodes/csihome-springcloud-config-repo
+
+---
+spring.profiles: pull-mode
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/csihome/csihome-springcloud-config-repo
+
