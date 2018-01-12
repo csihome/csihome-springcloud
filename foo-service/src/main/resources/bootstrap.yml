@@ -3,10 +3,11 @@ spring:
     name: foo-service
   cloud:
     config:
+      enabled: true
+      failFast: true
       discovery:
         enabled: true
-        service-id: config-server
-      enabled: true
+        serviceId: config-server
 
 management:
   security:
