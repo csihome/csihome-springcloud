@@ -7,6 +7,7 @@ spring:
       failFast: true
       discovery:
         enabled: true
+        # App service pointing to Config-Server bypassing Discovery-Server
         serviceId: config-server
 
 management:
