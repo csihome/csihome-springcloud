@@ -3,7 +3,10 @@ spring:
     name: bar-service
   cloud:
     config:
-      uri: http://config-server:8888
+      discovery:
+        enabled: true
+        service-id: config-server
+      enabled: true
 
 management:
   security:

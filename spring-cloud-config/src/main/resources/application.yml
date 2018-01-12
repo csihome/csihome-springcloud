@@ -2,13 +2,11 @@ server:
   port: 8888
 
 eureka:
-  instance:
-    hostname: config-server
   client:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://discovery-server:8761/eureka/
+      defaultZone: http://${DISCOVERY_DOMAIN:localhost}:8761/eureka/
 
 spring.profiles.active: push-mode
 
