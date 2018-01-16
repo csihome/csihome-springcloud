@@ -7,6 +7,11 @@
 #  image: famunity/config-server
 #  ports:
 #   - "8888:8888"
+#  volumes:
+#   - /Users/zhanming.cui/Synchronoss/GitHubCodes/csihome-springcloud-config-repo:/tmp/config-repo
+#   - /Users/zhanming.cui/Synchronoss/GitHubCodes/csihome-springcloud-config-repo/application.yml:/tmp/config-repo/application.yml
+#   - /Users/zhanming.cui/Synchronoss/GitHubCodes/csihome-springcloud-config-repo/foo.properties:/tmp/config-repo/foo.properties
+#   - /Users/zhanming.cui/Synchronoss/GitHubCodes/csihome-springcloud-config-repo/bar.properties:/tmp/config-repo/bar.properties
 #  links:
 #   - discovery-server
 #
@@ -14,6 +19,14 @@
 #  image: famunity/bar-service
 #  ports:
 #   - "8091:8091"
+#  links:
+#   - discovery-server
+#   - config-server
+#
+#foo-service:
+#  image: famunity/foo-service
+#  ports:
+#   - "8090:8090"
 #  links:
 #   - discovery-server
 #   - config-server

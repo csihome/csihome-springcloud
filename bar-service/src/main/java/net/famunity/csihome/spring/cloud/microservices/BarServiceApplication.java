@@ -1,4 +1,4 @@
-package net.famunity.csihome.spring.cloud.microservices.foo;
+package net.famunity.csihome.spring.cloud.microservices;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,9 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class FooServiceApplication {
+public class BarServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FooServiceApplication.class, args);
+		SpringApplication.run(BarServiceApplication.class, args);
 	}
 }
-

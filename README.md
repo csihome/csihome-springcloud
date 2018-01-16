@@ -23,13 +23,18 @@ curl -i -X POST http://localhost:8090/refresh
 curl -i -X GET http://localhost:8090/foo
 ```
 
-## Centralized Properties by Pull mode, plus Discovery Service
+## Centralized Properties by Push mode, plus Discovery Service
 * Spring Cloud Config Repo in GitHub: config-repo
 * Spring Cloud Config Server: config-server
 * Spring Cloud Discovery Server: discovery-server
 * Spring Cloud Config Client App: foo-service
+* Spring Cloud Config Client App: bar-service
+* Spring Cloud Bus AMQP: RabbitMQ
 
 ```commandline
+# Step 0 Startup RabbitMQ
+docker-compose up
+
 # Step 1 Build docker image for all 4 components
 cd {bar-service|spring-cloud-config|spring-cloud-discovery}
 mvn docker:build
@@ -51,13 +56,6 @@ curl -i -X POST http://localhost:8091/refresh
 curl -i -X GET http://localhost:8091/bar
 ```
 
-## Centralized Properties by Post mode
- 
-### Spring Cloud Config Client App: dv-service
-
-### Spring Cloud Discovery Server: eureka-service
-
-### RabbitMQ
 
 
 ```commandline

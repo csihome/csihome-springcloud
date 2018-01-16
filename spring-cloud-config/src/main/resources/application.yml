@@ -1,13 +1,13 @@
 server.port: 8888
 
-spring.profiles.active: push-mode
+spring.profiles.active: pull-mode
 
 eureka:
   client:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://${DISCOVERY_DOMAIN:localhost}:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
 
 
 ---

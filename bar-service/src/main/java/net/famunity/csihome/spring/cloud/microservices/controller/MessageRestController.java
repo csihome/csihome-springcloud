@@ -1,4 +1,4 @@
-package net.famunity.csihome.spring.cloud.microservices.bar;
+package net.famunity.csihome.spring.cloud.microservices.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
